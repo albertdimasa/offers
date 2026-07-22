@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZOTTEX - Studio Custom Apparel & Sablon Kaos Studio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: [
+                            'system-ui', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"',
+                            'Roboto', '"Helvetica Neue"', 'Arial', 'sans-serif'
+                        ],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0f4ff',
+                            100: '#e0e9fe',
+                            600: '#1d4ed8',
+                            700: '#1e40af',
+                            800: '#1e3a8a',
+                            900: '#0f172a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom scrollbar for clean UI */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 5px;
+            height: 5px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 3px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+        .toast-enter {
+            animation: slideUp 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        @keyframes slideUp {
+            from { transform: translateY(100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans antialiased selection:bg-slate-900 selection:text-white">
+
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Brand Logo -->
+                <a href="#" class="flex items-center gap-3">
+                    <div class="w-9 h-9 rounded-lg bg-slate-900 text-white font-bold text-xl flex items-center justify-center tracking-tighter">
+                        Z
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-bold text-lg leading-tight tracking-tight text-slate-900">ZOTTEX</span>
+                        <span class="text-[10px] uppercase font-semibold text-slate-500 tracking-wider -mt-0.5">Apparel Studio</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center gap-7 text-xs font-semibold text-slate-600 uppercase tracking-wider">
+                    <a href="#studio" class="hover:text-blue-600 transition-colors flex items-center gap-1.5">
+                        <i class="fa-solid fa-sliders text-slate-400"></i> Simulator Order
+                    </a>
+                    <a href="#tracking" class="hover:text-blue-600 transition-colors flex items-center gap-1.5">
+                        <i class="fa-solid fa-truck-fast text-slate-400"></i> Lacak Pesanan
+                    </a>
+                    <a href="#catalog" class="hover:text-blue-600 transition-colors">Katalog & Sablon</a>
+                    <a href="#faq" class="hover:text-blue-600 transition-colors">FAQ</a>
+                </nav>
+
+                <!-- Header CTA -->
+                <div class="flex items-center gap-3">
+                    <a href="#studio" class="bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold px-4 py-2.5 rounded-lg transition-colors flex items-center gap-2 shadow-sm">
+                        <i class="fa-solid fa-plus text-[10px]"></i>
+                        <span>Buat Pesanan</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-white border-b border-slate-200 py-12 md:py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-10 items-center">
+                
+                <div class="lg:col-span-7 space-y-5 text-left">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-slate-100 border border-slate-200 text-slate-700 text-xs font-semibold">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500"></span> Workshop Konveksi & Sablon Presisi
+                    </div>
+                    
+                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+                        Cetak Custom Kaos Distro & Instansi Praktis Transparan.
+                    </h1>
+                    
+                    <p class="text-slate-600 text-sm sm:text-base leading-relaxed max-w-2xl">
+                        Hitung estimasi biaya pemesanan secara otomatis, unggah desain Anda, dan kirimkan spesifikasi lengkap langsung ke WhatsApp tim teknis ZOTTEX tanpa biaya pendaftaran.
+                    </p>
+
+                    <div class="pt-2 flex flex-wrap gap-3">
+                        <a href="#studio" class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm font-semibold rounded-lg shadow-sm transition-colors flex items-center gap-2">
+                            <i class="fa-solid fa-shirt"></i> Mulai Desain & Order
+                        </a>
+                        <a href="#tracking" class="px-6 py-3 bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs sm:text-sm font-semibold rounded-lg border border-slate-300 transition-colors flex items-center gap-2">
+                            <i class="fa-solid fa-magnifying-glass text-slate-500"></i> Cek Status Production
+                        </a>
+                    </div>
+
+                    <!-- Highlight Badges -->
+                    <div class="pt-6 border-t border-slate-100 grid grid-cols-3 gap-4">
+                        <div class="space-y-0.5">
+                            <p class="font-bold text-lg text-slate-900">12 Pcs</p>
+                            <p class="text-xs text-slate-500 font-medium">Min. Order Luwes</p>
+                        </div>
+                        <div class="space-y-0.5">
+                            <p class="font-bold text-lg text-slate-900">3-5 Hari</p>
+                            <p class="text-xs text-slate-500 font-medium">Estimasi Produksi</p>
+                        </div>
+                        <div class="space-y-0.5">
+                            <p class="font-bold text-lg text-slate-900">100% Presisi</p>
+                            <p class="text-xs text-slate-500 font-medium">Garansi Ganti Baru</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Feature Box Card -->
+                <div class="lg:col-span-5">
+                    <div class="bg-slate-900 text-slate-100 rounded-xl p-6 shadow-md border border-slate-800 space-y-4">
+                        <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+                            <span class="text-xs font-mono text-slate-400">STANDAR KUALITAS ZOTTEX</span>
+                            <span class="text-[11px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded font-mono">v2.4</span>
+                        </div>
+
+                        <div class="space-y-3">
+                            <div class="flex items-start gap-3 bg-slate-800/60 p-3 rounded-lg border border-slate-800">
+                                <div class="w-8 h-8 rounded bg-blue-600/20 text-blue-400 flex items-center justify-center shrink-0 font-bold">
+                                    <i class="fa-solid fa-layer-group text-sm"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-xs font-bold text-white">Bahan Murni 100% Cotton</h4>
+                                    <p class="text-[11px] text-slate-400 mt-0.5">Combed 24s & 30s adem, halus, menyerap keringat.</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-3 bg-slate-800/60 p-3 rounded-lg border border-slate-800">
+                                <div class="w-8 h-8 rounded bg-emerald-600/20 text-emerald-400 flex items-center justify-center shrink-0 font-bold">
+                                    <i class="fa-solid fa-print text-sm"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-xs font-bold text-white">Sablon DTF & Plastisol Studio</h4>
+                                    <p class="text-[11px] text-slate-400 mt-0.5">Hasil cetak tajam, warna rapat, anti melepuh/retak.</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-3 bg-slate-800/60 p-3 rounded-lg border border-slate-800">
+                                <div class="w-8 h-8 rounded bg-amber-600/20 text-amber-400 flex items-center justify-center shrink-0 font-bold">
+                                    <i class="fa-brands fa-whatsapp text-sm"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-xs font-bold text-white">Format Checkout WA Rapi</h4>
+                                    <p class="text-[11px] text-slate-400 mt-0.5">Data order langsung masuk ke sistem CS tanpa pengetikan ulang.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Order Configurator & Simulator -->
+    <section id="studio" class="py-12 bg-slate-100 border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-8">
+                <span class="text-xs font-bold uppercase tracking-wider text-blue-600">Configurator Engine</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">Form Pemesanan & Simulator Kaos</h2>
+                <p class="text-slate-600 text-xs sm:text-sm mt-1">Sesuaikan warna kaos, jenis bahan, tipe sablon, dan jumlah ukuran di bawah ini.</p>
+            </div>
+
+            <div class="grid lg:grid-cols-12 gap-8 items-start">
+                
+                <!-- Left Sticky Preview Mockup -->
+                <div class="lg:col-span-5 lg:sticky lg:top-20">
+                    <div class="bg-white border border-slate-200 rounded-xl p-5 shadow-sm space-y-4">
+                        <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+                            <span class="text-xs font-bold text-slate-700 uppercase tracking-wider flex items-center gap-1.5">
+                                <i class="fa-solid fa-eye text-blue-600"></i> Pratinjau Visual Kaos
+                            </span>
+                            <span id="previewColorLabel" class="text-[11px] font-semibold bg-slate-100 text-slate-700 px-2.5 py-1 rounded">
+                                Warna: Hitam Pekat
+                            </span>
+                        </div>
+
+                        <!-- T-shirt Visualizer Box -->
+                        <div id="shirtMockupBox" class="relative w-full aspect-square rounded-lg flex items-center justify-center p-6 border border-slate-200 transition-colors duration-200 overflow-hidden" style="background-color: #111827;">
+                            
+                            <!-- Vector T-Shirt Silhouette Overlay -->
+                            <svg class="absolute inset-0 w-full h-full p-4 pointer-events-none opacity-80" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M160 80 C 190 120, 310 120, 340 80 L 440 140 L 390 220 L 350 190 L 350 430 L 150 430 L 150 190 L 110 220 L 60 140 Z" 
+                                      fill="currentColor" class="text-slate-900/30" stroke="rgba(255,255,255,0.25)" stroke-width="3"/>
+                                <path d="M190 80 C 220 110, 280 110, 310 80" stroke="rgba(255,255,255,0.3)" stroke-width="3" fill="none"/>
+                            </svg>
+
+                            <!-- Print Area Dropzone Placement -->
+                            <div id="printAreaBox" class="relative z-10 w-44 h-52 border border-dashed border-white/40 rounded flex flex-col items-center justify-center p-2 text-center">
+                                <div id="uploadPlaceholder" class="p-2 space-y-1">
+                                    <i class="fa-solid fa-cloud-arrow-up text-2xl text-white/70"></i>
+                                    <p class="text-[11px] text-white/90 font-medium">Area Sablon Dada</p>
+                                    <p class="text-[9px] text-white/60">File otomatis tampil di sini</p>
+                                </div>
+                                <img id="userDesignPreview" class="hidden max-h-full max-w-full object-contain drop-shadow" alt="Preview Desain" />
+                            </div>
+
+                        </div>
+
+                        <!-- Info Helper -->
+                        <div class="flex items-center justify-between text-xs text-slate-500 bg-slate-50 p-2.5 rounded border border-slate-200">
+                            <span><i class="fa-solid fa-crosshairs text-slate-400 mr-1"></i> Posisi: Dada Depan</span>
+                            <span id="sablonTypeBadge" class="font-bold text-blue-700">DTF Full Color</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Form Engine -->
+                <div class="lg:col-span-7">
+                    <form id="orderForm" onsubmit="event.preventDefault();" class="bg-white border border-slate-200 rounded-xl p-6 sm:p-8 space-y-6 shadow-sm">
+                        
+                        <!-- Step 1: Upload Desain -->
+                        <div class="space-y-2">
+                            <label class="flex items-center justify-between text-xs font-bold uppercase tracking-wider text-slate-800">
+                                <span><span class="text-blue-600 font-mono">01.</span> Upload File Desain / Logo</span>
+                                <span class="text-[10px] text-slate-500 font-normal">PNG / JPG / PDF (Max 10MB)</span>
+                            </label>
+                            
+                            <div class="relative border border-dashed border-slate-300 hover:border-blue-600 transition-colors rounded-lg p-4 text-center cursor-pointer bg-slate-50/50" id="dropZone">
+                                <input type="file" id="designInput" accept="image/*" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer" onchange="handleDesignUpload(this)">
+                                <div class="flex items-center justify-center gap-3">
+                                    <div class="w-9 h-9 rounded bg-white border border-slate-200 text-slate-600 flex items-center justify-center font-bold">
+                                        <i class="fa-solid fa-image text-sm"></i>
+                                    </div>
+                                    <div class="text-left">
+                                        <p id="fileNameDisplay" class="text-xs font-semibold text-slate-800">Klik atau tarik file logo/gambar ke sini</p>
+                                        <p class="text-[11px] text-slate-500">Rekomendasi format PNG transparan untuk hasil terbaik</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Pilih Warna -->
+                        <div class="space-y-2">
+                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-800">
+                                <span class="text-blue-600 font-mono">02.</span> Pilih Warna Kaos
+                            </label>
+                            <div class="grid grid-cols-2 sm:grid-cols-3 gap-2.5" id="colorPickerContainer">
+                                <!-- Dynamic JS colors -->
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Material & Sablon Selection -->
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <div class="space-y-1.5">
+                                <label class="block text-xs font-bold uppercase tracking-wider text-slate-800">
+                                    <span class="text-blue-600 font-mono">03.</span> Bahan Kaos
+                                </label>
+                                <select id="fabricSelect" onchange="calculatePrice()" class="w-full bg-white border border-slate-300 rounded-lg px-3 py-2.5 text-xs font-medium text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-600">
+                                    <option value="combed30s" data-price="55000">Cotton Combed 30s (Adem & Ringan)</option>
+                                    <option value="combed24s" data-price="60000" selected>Cotton Combed 24s (Standar Distro)</option>
+                                    <option value="heavyweight20s" data-price="70000">Heavyweight Cotton 20s (Tebal Premium)</option>
+                                    <option value="bamboo" data-price="75000">Cotton Bamboo (Anti Bakteri)</option>
+                                </select>
+                            </div>
+
+                            <div class="space-y-1.5">
+                                <label class="block text-xs font-bold uppercase tracking-wider text-slate-800">
+                                    <span class="text-blue-600 font-mono">04.</span> Jenis Sablon
+                                </label>
+                                <select id="printSelect" onchange="calculatePrice()" class="w-full bg-white border border-slate-300 rounded-lg px-3 py-2.5 text-xs font-medium text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-600">
+                                    <option value="dtf" data-price="20000" selected>DTF Full Color (Presisi Tinggi)</option>
+                                    <option value="plastisol" data-price="25000">Plastisol Manual (Sangat Awet)</option>
+                                    <option value="discharge" data-price="28000">Discharge / Cabut Warna</option>
+                                    <option value="bordir" data-price="22000">Bordir Komputer Presisi</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Step 4: Size Breakdown Matrix -->
+                        <div class="space-y-2">
+                            <div class="flex items-center justify-between">
+                                <label class="text-xs font-bold uppercase tracking-wider text-slate-800">
+                                    <span class="text-blue-600 font-mono">05.</span> Rincian Ukuran & Jumlah (Pcs)
+                                </label>
+                                <span class="text-[11px] text-slate-500 font-medium">Min Total Order: 12 Pcs</span>
+                            </div>
+
+                            <div class="grid grid-cols-5 gap-2">
+                                <div class="bg-slate-50 border border-slate-200 rounded p-2 text-center">
+                                    <span class="text-xs font-bold text-slate-700 block mb-1">S</span>
+                                    <input type="number" min="0" value="0" data-size="S" onchange="calculatePrice()" oninput="calculatePrice()" class="size-qty-input w-full bg-white border border-slate-300 text-center rounded py-1 text-xs font-bold text-slate-900 focus:outline-none focus:border-blue-600">
+                                </div>
+                                <div class="bg-slate-50 border border-slate-200 rounded p-2 text-center">
+                                    <span class="text-xs font-bold text-slate-700 block mb-1">M</span>
+                                    <input type="number" min="0" value="12" data-size="M" onchange="calculatePrice()" oninput="calculatePrice()" class="size-qty-input w-full bg-white border border-slate-300 text-center rounded py-1 text-xs font-bold text-slate-900 focus:outline-none focus:border-blue-600">
+                                </div>
+                                <div class="bg-slate-50 border border-slate-200 rounded p-2 text-center">
+                                    <span class="text-xs font-bold text-slate-700 block mb-1">L</span>
+                                    <input type="number" min="0" value="12" data-size="L" onchange="calculatePrice()" oninput="calculatePrice()" class="size-qty-input w-full bg-white border border-slate-300 text-center rounded py-1 text-xs font-bold text-slate-900 focus:outline-none focus:border-blue-600">
+                                </div>
+                                <div class="bg-slate-50 border border-slate-200 rounded p-2 text-center">
+                                    <span class="text-xs font-bold text-slate-700 block mb-1">XL</span>
+                                    <input type="number" min="0" value="0" data-size="XL" onchange="calculatePrice()" oninput="calculatePrice()" class="size-qty-input w-full bg-white border border-slate-300 text-center rounded py-1 text-xs font-bold text-slate-900 focus:outline-none focus:border-blue-600">
+                                </div>
+                                <div class="bg-slate-50 border border-slate-200 rounded p-2 text-center">
+                                    <span class="text-xs font-bold text-slate-700 block mb-1">XXL (+5k)</span>
+                                    <input type="number" min="0" value="0" data-size="XXL" onchange="calculatePrice()" oninput="calculatePrice()" class="size-qty-input w-full bg-white border border-slate-300 text-center rounded py-1 text-xs font-bold text-slate-900 focus:outline-none focus:border-blue-600">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 5: Customer Details -->
+                        <div class="grid sm:grid-cols-2 gap-4 pt-2 border-t border-slate-100">
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-700 mb-1">Nama Pemesan / Perusahaan</label>
+                                <input type="text" id="custName" placeholder="Contoh: Budi Santoso" class="w-full bg-white border border-slate-300 rounded-lg px-3 py-2 text-xs text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-600">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-700 mb-1">Kota / Alamat Pengiriman</label>
+                                <input type="text" id="custCity" placeholder="Contoh: Bandung, Jawa Barat" class="w-full bg-white border border-slate-300 rounded-lg px-3 py-2 text-xs text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-600">
+                            </div>
+                        </div>
+
+                        <!-- Summary Calculation & WhatsApp Action Box -->
+                        <div class="bg-slate-900 text-white rounded-xl p-5 space-y-4">
+                            <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-2 border-b border-slate-800 pb-3">
+                                <div>
+                                    <span class="text-xs text-slate-400 block">Estimasi Total (<span id="totalQtyDisplay">24</span> Pcs):</span>
+                                    <span id="totalPriceDisplay" class="text-2xl font-black text-white tracking-tight">Rp 1.920.000</span>
+                                </div>
+                                <div class="text-left sm:text-right">
+                                    <span class="text-[11px] text-slate-400 block">Biaya per Pcs:</span>
+                                    <span id="unitPriceDisplay" class="text-xs font-semibold text-slate-200">Rp 80.000 / pcs</span>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center justify-between text-xs text-emerald-400">
+                                <span><i class="fa-solid fa-tag mr-1"></i> Diskon Kuantitas Kategori Grosir</span>
+                                <span id="discountTagBadge" class="font-bold bg-emerald-500/20 px-2 py-0.5 rounded text-[11px]">-0%</span>
+                            </div>
+
+                            <button type="button" onclick="sendOrderToWhatsApp()" class="w-full py-3 px-4 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-lg transition-colors flex items-center justify-center gap-2 text-sm shadow-sm">
+                                <i class="fa-brands fa-whatsapp text-lg"></i>
+                                <span>Kirim Pesanan Ke WhatsApp Tim ZOTTEX</span>
+                            </button>
+                            <p class="text-[10px] text-center text-slate-400">
+                                Rincian lengkap otomatis terstruktur saat pesan WhatsApp dibuka.
+                            </p>
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Order Status Tracking Section -->
+    <section id="tracking" class="py-12 bg-white border-b border-slate-200">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-8">
+                <span class="text-xs font-bold uppercase tracking-wider text-emerald-600">Real-time Production</span>
+                <h2 class="text-2xl font-extrabold text-slate-900 mt-0.5">Lacak Status Pengerjaan Pesanan</h2>
+                <p class="text-slate-600 text-xs sm:text-sm mt-1">Masukkan ID Order / Nomor Resi Anda untuk memantau progres pengerjaan di workshop ZOTTEX.</p>
+            </div>
+
+            <!-- Tracking Form -->
+            <div class="bg-slate-50 border border-slate-200 p-4 rounded-xl mb-6">
+                <form onsubmit="event.preventDefault(); trackOrder();" class="flex flex-col sm:flex-row gap-2.5">
+                    <input type="text" id="trackingInput" placeholder="Masukkan ID Order (Contoh: ZTX-1002)" value="ZTX-1002" class="flex-1 bg-white border border-slate-300 rounded-lg px-3.5 py-2.5 text-xs font-mono font-bold text-slate-900 focus:outline-none focus:ring-2 focus:ring-emerald-600 uppercase">
+                    <button type="submit" class="bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold px-5 py-2.5 rounded-lg transition-colors flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <span>Cek Status</span>
+                    </button>
+                </form>
+            </div>
+
+            <!-- Dynamic Tracking Result Box -->
+            <div id="trackingResult" class="bg-white border border-slate-200 rounded-xl p-5 sm:p-6 space-y-5">
+                <!-- Populated via JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Catalog & Material Educational Specs -->
+    <section id="catalog" class="py-12 bg-slate-50 border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <span class="text-xs font-bold uppercase tracking-wider text-blue-600">Material & Print Guide</span>
+                <h2 class="text-2xl font-extrabold text-slate-900 mt-0.5">Spesifikasi Bahan & Jenis Sablon</h2>
+                <p class="text-slate-600 text-xs sm:text-sm mt-1">Panduan memilih kombinasi kain dan cetakan sesuai kebutuhan event atau brand Anda.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+                <!-- Material Card 1 -->
+                <div class="bg-white border border-slate-200 rounded-xl p-5 space-y-3">
+                    <div class="w-10 h-10 rounded bg-slate-100 text-slate-800 flex items-center justify-center font-bold text-lg">
+                        <i class="fa-solid fa-shirt"></i>
+                    </div>
+                    <h3 class="text-sm font-bold text-slate-900">Cotton Combed 24s / 30s</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        Terbuat dari 100% serat kapas alami murni. Halus, adem, menyerap keringat dengan baik, pilihan utama standar distro nasional.
+                    </p>
+                    <span class="inline-block text-[10px] font-bold text-blue-700 bg-blue-50 px-2 py-0.5 rounded">Standard Best-Seller</span>
+                </div>
+
+                <!-- Material Card 2 -->
+                <div class="bg-white border border-slate-200 rounded-xl p-5 space-y-3">
+                    <div class="w-10 h-10 rounded bg-slate-100 text-slate-800 flex items-center justify-center font-bold text-lg">
+                        <i class="fa-solid fa-print"></i>
+                    </div>
+                    <h3 class="text-sm font-bold text-slate-900">Sablon DTF High-Res</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        Teknologi cetak film digital presisi tinggi. Sempurna untuk gambar dengan detail sangat rumit, warna gradasi, dan foto.
+                    </p>
+                    <span class="inline-block text-[10px] font-bold text-indigo-700 bg-indigo-50 px-2 py-0.5 rounded">Detail & Gradasi</span>
+                </div>
+
+                <!-- Material Card 3 -->
+                <div class="bg-white border border-slate-200 rounded-xl p-5 space-y-3">
+                    <div class="w-10 h-10 rounded bg-slate-100 text-slate-800 flex items-center justify-center font-bold text-lg">
+                        <i class="fa-solid fa-fill-drip"></i>
+                    </div>
+                    <h3 class="text-sm font-bold text-slate-900">Plastisol Manual Studio</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        Tinta berbahan dasar minyak dengan daya rekat sangat kuat. Hasil cetak bertekstur, elastis, dan tahan cuci berkali-kali.
+                    </p>
+                    <span class="inline-block text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded">Ketahanan Ekstra</span>
+                </div>
+
+                <!-- Material Card 4 -->
+                <div class="bg-white border border-slate-200 rounded-xl p-5 space-y-3">
+                    <div class="w-10 h-10 rounded bg-slate-100 text-slate-800 flex items-center justify-center font-bold text-lg">
+                        <i class="fa-solid fa-crown"></i>
+                    </div>
+                    <h3 class="text-sm font-bold text-slate-900">Bordir Komputer</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        Menggunakan mesin rajut otomatis multi-head. Memberikan tampilan rapi, elegan, dan profesional untuk seragam atau polo shirt.
+                    </p>
+                    <span class="inline-block text-[10px] font-bold text-amber-700 bg-amber-50 px-2 py-0.5 rounded">Kesan Formal Premium</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-12 bg-white border-b border-slate-200">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-8">
+                <h2 class="text-2xl font-extrabold text-slate-900">Pertanyaan Sering Diajukan</h2>
+                <p class="text-slate-600 text-xs sm:text-sm mt-1">Informasi teknis seputar pengerjaan dan garansi ZOTTEX</p>
+            </div>
+
+            <div class="space-y-3">
+                <div class="border border-slate-200 rounded-lg p-4 bg-slate-50/50">
+                    <h4 class="text-xs sm:text-sm font-bold text-slate-900">Berapa minimal jumlah pemesanan kaos di ZOTTEX?</h4>
+                    <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+                        Minimal order standar adalah 12 Pcs untuk 1 desain. Untuk pembuatan sampel/prototype produk sebelum pemesanan masal, Anda bisa menghubungi admin teknis via WhatsApp.
+                    </p>
+                </div>
+
+                <div class="border border-slate-200 rounded-lg p-4 bg-slate-50/50">
+                    <h4 class="text-xs sm:text-sm font-bold text-slate-900">Bagaimana jika file desain yang saya miliki pecah atau kurang jelas?</h4>
+                    <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+                        Tim desainer ZOTTEX memberikan layanan bantu *redesign* / tracing file gambar menjadi format vector HD secara **GRATIS** untuk setiap pemesanan di atas 24 Pcs.
+                    </p>
+                </div>
+
+                <div class="border border-slate-200 rounded-lg p-4 bg-slate-50/50">
+                    <h4 class="text-xs sm:text-sm font-bold text-slate-900">Apakah ada garansi garansi hasil cetak?</h4>
+                    <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+                        Ya. Kami memberikan Garansi 100% Ganti Baru jika terdapat cacat jahitan, sablon terkelupas, atau ketidaksesuaian jumlah spesifikasi pesanan.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-10 text-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+            <div class="grid md:grid-cols-4 gap-6">
+                <div class="md:col-span-2 space-y-3">
+                    <div class="flex items-center gap-2">
+                        <div class="w-7 h-7 rounded bg-white text-slate-900 font-bold flex items-center justify-center text-sm">Z</div>
+                        <span class="font-bold text-white text-base">ZOTTEX APPAREL STUDIO</span>
+                    </div>
+                    <p class="text-xs text-slate-400 max-w-sm leading-relaxed">
+                        Workshop produksi konveksi & cetak pakaian custom berkualitas studio. Melayani pembuatan kaos event, seragam kantor, dan produk clothing line.
+                    </p>
+                </div>
+
+                <div class="space-y-2">
+                    <h5 class="text-white font-bold text-xs uppercase tracking-wider">Kontak Workshop</h5>
+                    <ul class="space-y-1.5 text-[11px]">
+                        <li><i class="fa-solid fa-location-dot w-4 text-slate-500"></i> Jl. Industri Konveksi No. 88, Bandung</li>
+                        <li><i class="fa-brands fa-whatsapp w-4 text-emerald-500"></i> +62 812-3456-7890</li>
+                        <li><i class="fa-solid fa-envelope w-4 text-slate-500"></i> support@zotteXstudio.id</li>
+                    </ul>
+                </div>
+
+                <div class="space-y-2">
+                    <h5 class="text-white font-bold text-xs uppercase tracking-wider">Jam Operasional</h5>
+                    <ul class="space-y-1 text-[11px]">
+                        <li>Senin - Sabtu: 08:00 - 18:00 WIB</li>
+                        <li class="text-slate-500">Minggu / Hari Libur: Tutup Produksi</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pt-6 border-t border-slate-800 flex flex-col sm:flex-row justify-between items-center text-[11px] text-slate-500 gap-2">
+                <p>&copy; 2026 ZOTTEX Apparel Studio. All rights reserved.</p>
+                <div class="flex gap-4">
+                    <a href="#" class="hover:text-slate-300">Terms of Service</a>
+                    <a href="#" class="hover:text-slate-300">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Application Logic Script -->
+    <script>
+        // Color Palette Data
+        const SHIRT_COLORS = [
+            { id: 'black', name: 'Hitam Pekat', hex: '#111827' },
+            { id: 'white', name: 'Putih Clean', hex: '#ffffff' },
+            { id: 'navy', name: 'Biru Navy', hex: '#1e3a8a' },
+            { id: 'maroon', name: 'Merah Maroon', hex: '#881337' },
+            { id: 'sage', name: 'Sage Green', hex: '#3f6212' },
+            { id: 'cream', name: 'Oversized Cream', hex: '#fef3c7' }
+        ];
+
+        // Production Tracking Database (Mock Real Data)
+        const TRACKING_DATABASE = {
+            'ZTX-1001': {
+                customer: 'Budi Santoso (PT Maju Bersama)',
+                item: '50 Pcs Cotton Combed 24s - Hitam Pekat',
+                step: 4, 
+                update: '22 Jul 2026, 08:30 WIB',
+                statusText: 'Proses Quality Check (QC) Sebelum Packing',
+                expedition: 'JNE Express (Resi: 8820192318)'
+            },
+            'ZTX-1002': {
+                customer: 'Studio Komunitas Kreatif',
+                item: '24 Pcs Cotton Combed 30s - Sage Green',
+                step: 3,
+                update: '22 Jul 2026, 09:00 WIB',
+                statusText: 'Sedang Dalam Proses Cetak Sablon DTF High-Res',
+                expedition: 'Estimasi Kirim Besok Sore'
+            },
+            'ZTX-1003': {
+                customer: 'Rian Custom Brand',
+                item: '100 Pcs Heavyweight 20s - Cream',
+                step: 5,
+                update: '21 Jul 2026, 16:45 WIB',
+                statusText: 'Pesanan Telah Selesai & Dikirim via Cargo',
+                expedition: 'Indah Cargo (Resi: IDH-9921029)'
+            }
+        };
+
+        let selectedColor = SHIRT_COLORS[0];
+
+        window.addEventListener('DOMContentLoaded', () => {
+            renderColorPickers();
+            calculatePrice();
+            trackOrder();
+        });
+
+        // Render Color Buttons
+        function renderColorPickers() {
+            const container = document.getElementById('colorPickerContainer');
+            container.innerHTML = SHIRT_COLORS.map((c, index) => `
+                <button type="button" onclick="selectColor('${c.id}')" 
+                        class="color-btn flex items-center gap-2 p-2 rounded border ${index === 0 ? 'border-blue-600 bg-blue-50/50' : 'border-slate-200 bg-white'} hover:border-slate-400 transition-all text-left">
+                    <span class="w-5 h-5 rounded border border-slate-300 shadow-sm flex-shrink-0" style="background-color: ${c.hex}"></span>
+                    <span class="text-xs text-slate-800 font-medium truncate">${c.name}</span>
+                </button>
+            `).join('');
+        }
+
+        // Color Switching Logic
+        function selectColor(colorId) {
+            selectedColor = SHIRT_COLORS.find(c => c.id === colorId);
+            
+            const buttons = document.querySelectorAll('.color-btn');
+            buttons.forEach((btn, idx) => {
+                if (SHIRT_COLORS[idx].id === colorId) {
+                    btn.classList.add('border-blue-600', 'bg-blue-50/50');
+                    btn.classList.remove('border-slate-200', 'bg-white');
+                } else {
+                    btn.classList.remove('border-blue-600', 'bg-blue-50/50');
+                    btn.classList.add('border-slate-200', 'bg-white');
+                }
+            });
+
+            const mockupBox = document.getElementById('shirtMockupBox');
+            mockupBox.style.backgroundColor = selectedColor.hex;
+
+            // Border adjustment for white t-shirt preview
+            if (selectedColor.id === 'white') {
+                mockupBox.classList.add('border-slate-300');
+            } else {
+                mockupBox.classList.remove('border-slate-300');
+            }
+
+            document.getElementById('previewColorLabel').textContent = `Warna: ${selectedColor.name}`;
+        }
+
+        // Upload Logo/Design Image Preview Handler
+        function handleDesignUpload(input) {
+            const file = input.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const previewImg = document.getElementById('userDesignPreview');
+                    const placeholder = document.getElementById('uploadPlaceholder');
+                    const fileNameDisplay = document.getElementById('fileNameDisplay');
+
+                    previewImg.src = e.target.result;
+                    previewImg.classList.remove('hidden');
+                    placeholder.classList.add('hidden');
+                    fileNameDisplay.textContent = `File: ${file.name}`;
+                    fileNameDisplay.classList.add('text-blue-700', 'font-bold');
+                }
+                reader.readAsDataURL(file);
+            }
+        }
+
+        // Automatic Price Calculator
+        function calculatePrice() {
+            const fabricSelect = document.getElementById('fabricSelect');
+            const fabricPrice = parseInt(fabricSelect.options[fabricSelect.selectedIndex].getAttribute('data-price')) || 60000;
+
+            const printSelect = document.getElementById('printSelect');
+            const printPrice = parseInt(printSelect.options[printSelect.selectedIndex].getAttribute('data-price')) || 20000;
+            const printText = printSelect.options[printSelect.selectedIndex].text.split('(')[0];
+            
+            document.getElementById('sablonTypeBadge').textContent = printText;
+
+            const qtyInputs = document.querySelectorAll('.size-qty-input');
+            let totalQty = 0;
+            let xxlExtraFee = 0;
+
+            qtyInputs.forEach(input => {
+                const val = parseInt(input.value) || 0;
+                totalQty += val;
+                if (input.getAttribute('data-size') === 'XXL') {
+                    xxlExtraFee += val * 5000;
+                }
+            });
+
+            let unitPrice = fabricPrice + printPrice;
+
+            // Tiered Wholesale Discount
+            let discountPercent = 0;
+            if (totalQty >= 100) {
+                discountPercent = 0.20;
+            } else if (totalQty >= 50) {
+                discountPercent = 0.12;
+            } else if (totalQty >= 24) {
+                discountPercent = 0.05;
+            }
+
+            const discountTagBadge = document.getElementById('discountTagBadge');
+            if (discountPercent > 0) {
+                discountTagBadge.textContent = `-${discountPercent * 100}% Diskon Quantity`;
+                discountTagBadge.classList.remove('hidden');
+            } else {
+                discountTagBadge.classList.add('hidden');
+            }
+
+            let calculatedSubtotal = (unitPrice * totalQty) + xxlExtraFee;
+            let finalTotal = calculatedSubtotal - (calculatedSubtotal * discountPercent);
+            let effectiveUnitPrice = totalQty > 0 ? Math.round(finalTotal / totalQty) : unitPrice;
+
+            document.getElementById('totalQtyDisplay').textContent = totalQty;
+            document.getElementById('totalPriceDisplay').textContent = `Rp ${finalTotal.toLocaleString('id-ID')}`;
+            document.getElementById('unitPriceDisplay').textContent = `Rp ${effectiveUnitPrice.toLocaleString('id-ID')} / pcs`;
+        }
+
+        // Submit via WhatsApp Form
+        function sendOrderToWhatsApp() {
+            const custName = document.getElementById('custName').value.trim() || 'Pelanggan ZOTTEX';
+            const custCity = document.getElementById('custCity').value.trim() || 'Belum diisi';
+            
+            const fabricText = document.getElementById('fabricSelect').options[document.getElementById('fabricSelect').selectedIndex].text;
+            const printText = document.getElementById('printSelect').options[document.getElementById('printSelect').selectedIndex].text;
+            
+            const qtyInputs = document.querySelectorAll('.size-qty-input');
+            let sizeDetails = [];
+            let totalQty = 0;
+
+            qtyInputs.forEach(input => {
+                const val = parseInt(input.value) || 0;
+                if (val > 0) {
+                    sizeDetails.push(`${input.getAttribute('data-size')}: ${val} Pcs`);
+                    totalQty += val;
+                }
+            });
+
+            if (totalQty < 1) {
+                showToast('Masukkan jumlah ukuran kaos minimal 1 Pcs!');
+                return;
+            }
+
+            const totalPriceText = document.getElementById('totalPriceDisplay').textContent;
+            const unitPriceText = document.getElementById('unitPriceDisplay').textContent;
+
+            const message = `Halo Admin ZOTTEX Studio, Saya ingin memesan Custom Kaos dengan rincian berikut:
+
+📌 *DATA PEMESAN*
+• Nama: ${custName}
+• Kota Tujuan: ${custCity}
+
+👕 *SPESIFIKASI KAOS*
+• Warna Kaos: ${selectedColor.name}
+• Bahan Kaos: ${fabricText}
+• Tipe Sablon: ${printText}
+• Rincian Ukuran: ${sizeDetails.join(', ')}
+• Total Jumlah: *${totalQty} Pcs*
+
+💰 *ESTIMASI BIAYA*
+• Biaya per Pcs: ${unitPriceText}
+• Estimasi Total: *${totalPriceText}*
+
+*(Catatan: File gambar desain akan disusulkan setelah pesan ini)*`;
+
+            const encodedMessage = encodeURIComponent(message);
+            const waNumber = '6281234567890';
+            window.open(`https://wa.me/${waNumber}?text=${encodedMessage}`, '_blank');
+        }
+
+        // Tracking Lookup Function
+        function trackOrder() {
+            const searchId = document.getElementById('trackingInput').value.trim().toUpperCase();
+            const container = document.getElementById('trackingResult');
+
+            const order = TRACKING_DATABASE[searchId];
+
+            if (!order) {
+                container.innerHTML = `
+                    <div class="text-center py-6 text-slate-500 space-y-1">
+                        <i class="fa-solid fa-circle-exclamation text-2xl text-amber-500"></i>
+                        <p class="font-bold text-xs text-slate-800">ID Pesanan (${searchId}) Tidak Ditemukan</p>
+                        <p class="text-[11px]">Coba gunakan ID sampel: <span class="font-mono text-blue-700 font-bold">ZTX-1001</span>, <span class="font-mono text-blue-700 font-bold">ZTX-1002</span>, atau <span class="font-mono text-blue-700 font-bold">ZTX-1003</span></p>
+                    </div>
+                `;
+                return;
+            }
+
+            const steps = [
+                'Order Diterima',
+                'Setting Desain',
+                'Proses Cetak/Sablon',
+                'Quality Check',
+                'Dikirim'
+            ];
+
+            container.innerHTML = `
+                <div class="flex flex-col sm:flex-row justify-between sm:items-center pb-3 border-b border-slate-100 gap-2">
+                    <div>
+                        <span class="text-[11px] font-mono font-bold text-blue-700 bg-blue-50 px-2 py-0.5 rounded">${searchId}</span>
+                        <h4 class="text-sm font-bold text-slate-900 mt-1">${order.customer}</h4>
+                        <p class="text-xs text-slate-500">${order.item}</p>
+                    </div>
+                    <div class="text-left sm:text-right">
+                        <span class="text-[10px] text-slate-400 block uppercase">Update Terakhir</span>
+                        <span class="text-xs font-semibold text-slate-700">${order.update}</span>
+                    </div>
+                </div>
+
+                <div class="bg-slate-50 border border-slate-200 p-3 rounded-lg flex items-center gap-3">
+                    <i class="fa-solid fa-arrows-rotate text-blue-600 animate-spin text-sm"></i>
+                    <div>
+                        <p class="text-[10px] text-slate-500 font-bold uppercase">Status Saat Ini</p>
+                        <p class="text-xs font-bold text-slate-900">${order.statusText}</p>
+                    </div>
+                </div>
+
+                <!-- Timeline Progress Bar -->
+                <div class="pt-2">
+                    <div class="relative flex justify-between items-center">
+                        <div class="absolute top-1/2 left-0 right-0 h-0.5 bg-slate-200 -translate-y-1/2 z-0"></div>
+                        
+                        ${steps.map((st, i) => {
+                            const stepNum = i + 1;
+                            const isDone = stepNum <= order.step;
+                            const isCurrent = stepNum === order.step;
+                            return `
+                                <div class="relative z-10 flex flex-col items-center">
+                                    <div class="w-7 h-7 rounded-full flex items-center justify-center font-bold text-xs ${
+                                        isDone 
+                                        ? 'bg-emerald-600 text-white shadow-sm' 
+                                        : 'bg-white text-slate-400 border border-slate-300'
+                                    }">
+                                        ${isDone ? '<i class="fa-solid fa-check text-[10px]"></i>' : stepNum}
+                                    </div>
+                                    <span class="text-[10px] mt-1.5 font-medium ${isCurrent ? 'text-emerald-700 font-bold' : isDone ? 'text-slate-700' : 'text-slate-400'} text-center max-w-[65px]">
+                                        ${st}
+                                    </span>
+                                </div>
+                            `;
+                        }).join('')}
+                    </div>
+                </div>
+
+                <div class="pt-2 text-xs text-slate-600 flex justify-between items-center bg-slate-50 p-2.5 rounded border border-slate-200">
+                    <span><i class="fa-solid fa-truck text-emerald-600 mr-1"></i> Pengiriman: ${order.expedition}</span>
+                    <a href="https://wa.me/6281234567890" target="_blank" class="text-blue-700 hover:underline font-semibold">Tanya CS WA</a>
+                </div>
+            `;
+        }
+
+        // Custom UI Toast Notification
+        function showToast(msg) {
+            const toast = document.createElement('div');
+            toast.className = 'fixed bottom-4 right-4 bg-slate-900 text-white font-medium text-xs px-4 py-3 rounded-lg shadow-lg z-50 flex items-center gap-2 toast-enter border border-slate-800';
+            toast.innerHTML = `<i class="fa-solid fa-triangle-exclamation text-amber-400"></i> <span>${msg}</span>`;
+            document.body.appendChild(toast);
+            setTimeout(() => {
+                toast.remove();
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
