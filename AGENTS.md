@@ -11,7 +11,7 @@ Collection of standalone landing page demos (offer sites) for different local bu
 | `aqiqah/` | Aqiqah & Qurban catering (Surabaya) |
 | `zottex/` | ZOTTEX — custom apparel & sablon kaos |
 | `ac/` | reserved / placeholder |
-| `index.html` (root) | CV. Vivi Aris — AC service Surabaya |
+| `ac/` | CV. Vivi Aris — AC service Surabaya |
 
 Add a new demo by creating a new directory with an `index.html`.
 

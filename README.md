@@ -8,7 +8,7 @@ Collection of standalone landing page demos (offer sites) for different local bu
 |---|---|---|
 | `aqiqah/` | Syirkah Aqiqah Dan Qurban Surabaya | Aqiqah & Qurban catering |
 | `zottex/` | ZOTTEX | Custom apparel & sablon kaos |
-| `index.html` (root) | CV. Vivi Aris | AC service & maintenance |
+| `ac/` | CV. Vivi Aris | AC service & maintenance |
 
 Add a new demo by creating a new directory with an `index.html`.
 
